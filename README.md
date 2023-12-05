@@ -17,7 +17,7 @@ $ make clean
 
 <p>
 PROJETO CRIADO PARA DISCIPLINA DE SISTEMAS DIGITAIS
-Vide github dele:
+Vide github do professor lecionador desta disciplina:
 </p>
 
 <a href="https://github.com/mateusArnaudGoldbarg">
