@@ -21,17 +21,11 @@ int main( int argc, char* argv[] )
 {
   if (argc >= 3)
   {
-    if ( atoi(argv[1]) == 0 )
-    {
-      printf("FALHA: Argumento 1 inválido\n");
-      exit(1);
-    }
+    if ( atoi(argv[1]) == 0 ) { printf("Argumento 1 inválido\n"); exit(1); }
 
-    if ( atoi(argv[1]) == 0 ) { printf("Argumento 2 inválido\n"); exit(1); }
     uint8_t varnum = atoi(argv[1]);
-
-    //aplicação
     uint8_t* s = tratarArgumentoDois( varnum, argv[2] );
+
     if ( s != NULL)
     {
       mapa( varnum, s );
@@ -52,7 +46,7 @@ int main( int argc, char* argv[] )
 uint8_t* tratarArgumentoDois( int varnum, char* string )
 {
 
-  if ( varnum < 2 || varnum > 3 )
+  if ( varnum < 2 || varnum > 4 )
   {
     printf("tratarArgumentoDois() falhou devido a número de variáveis inválido de: %i\n", varnum);
     return NULL;
@@ -67,23 +61,15 @@ uint8_t* tratarArgumentoDois( int varnum, char* string )
     case 16:
       break;
     default:
-      printf("string do segundo argumento do programa é inválida devido ao número de saidas S");
+      printf("o número de saídas S dever ser 4|8|16 dígitos binários");
+      exit(1);
   }
 
   uint8_t* resultado = malloc( sizeof(uint8_t) * pow(2,varnum) );
 
   for ( uint8_t i = 0; i < pow(2,varnum); i++ )
   {
-    if ( atoi( (string+i) ) == 0 )
-    {
-      printf("falha atoi(string+i) no loop iniciador de valores da matriz de retorno de tratarArgumentoDois()\n");
-      free( resultado );
-      return NULL;
-    }
-    else
-    {
-      *(resultado+i) = *(string+i);
-    }
+    *(resultado+i) = *(string+i);
   }
   return resultado;
 }
@@ -92,8 +78,7 @@ void mapa( uint8_t varnum, uint8_t* s )
 {
 
   /* aproveitando o sistema posicional binário
-   * SE o usuário inseriu a
-   * entrou S na ordem certa :-)
+   * para todo S na ordem correta.
 
    S 1010
    B 0101
@@ -114,7 +99,7 @@ void mapa( uint8_t varnum, uint8_t* s )
   switch ( varnum )
   {
     case 2:
-      printf(" Bb\n");
+      printf(" bB\n");
       printf("a%c%c\n", *(s+0x00),*(s+0x01));
       printf("A%c%c\n", *(s+0x02),*(s+0x03));
       break;

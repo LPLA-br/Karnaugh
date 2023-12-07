@@ -5,12 +5,18 @@ para 2, 3 e 4 variáveis.
 
 ## COMPILAÇÃO, USO E LIMPEZA
 
+Os exemplos de uso abaixo, 
+entrada S, foram retirados
+da apostila no google class room
+para facilitação da validação desta
+ferramenta.
+
 ```
 
 $ make
-$ ./mapas.out 2 0111
-$ ./mapas.out 3 01110111
-$ ./mapas.out 4 0111011101110111
+$ ./mapas.out 2 1110
+$ ./mapas.out 3 01011110
+$ ./mapas.out 4 0111010111011101
 $ make clean
 
 ```
